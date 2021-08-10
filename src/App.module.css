@@ -1,0 +1,66 @@
+
+.listitem {
+display: flex;
+  width:450px;
+  height:auto;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  background-color: rgba(0, 0, 0, .85);
+  color:white;
+  /* backdrop-filter: blur(7px); */
+  padding: 5px;
+  text-align: center;
+  min-width: 200px;
+  min-height: 200px;
+  flex-direction: column;
+  border-radius: 40px;
+  backdrop-filter: blur(8px);
+}
+
+
+.container {
+
+  display: flex;
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.name {
+  font-family: 'Century Gothic';
+  font-size: 130%;
+  margin-top: 10px;
+}
+
+
+.username {
+
+  font-size: 132%;
+  color: blanchedalmond;
+}
+
+.email {
+
+  
+  font-size: 90%;
+  color: blanchedalmond;
+}
+
+
+
+@media screen and (max-width:850px) {
+
+
+  .listitem {
+    
+    width: 100%;
+
+  }
+
+
+}
