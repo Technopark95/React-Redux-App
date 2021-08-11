@@ -15,7 +15,7 @@ display: flex;
   min-height: 200px;
   flex-direction: column;
   border-radius: 40px;
-  backdrop-filter: blur(8px);
+
 }
 
 
