@@ -93,9 +93,22 @@ async refreshuserlist ()  {
     let User = new Users();
     let Timestamp = new RefreshTime();
 
+    document.getElementById("refreshico").style.transition = "600ms linear";
+    document.getElementById("refreshico").style.transform = "rotate(360deg)";
+
+    setTimeout(()=> {
+
+    document.getElementById("refreshico").style.transition = "0ms linear";
+    document.getElementById("refreshico").style.transform = "rotate(0deg)";
+
+    },1050);
+
+
+
     await User.fetchUsers();
 
-   updateTime();
+    updateTime();
+
 
     let UserInfo = store.getState()["userData"];
 
@@ -111,7 +124,7 @@ async refreshuserlist ()  {
 return (
 
 <div>
-    <button className={styles.refreshbutton} onClick={this.refreshuserlist}><img alt={"Refresh"} className={styles.refreshicon} src={refreshicon}></img></button>
+    <button className={styles.refreshbutton} onClick={this.refreshuserlist}><img id={"refreshico"} alt={"Refresh"} className={styles.refreshicon} src={refreshicon}></img></button>
 </div>
 
 )

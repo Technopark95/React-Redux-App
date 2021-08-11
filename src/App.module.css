@@ -68,8 +68,9 @@ margin-top: 4px;
 width: 100%;
 height: auto;
 cursor: pointer;
-
+transition: 600ms linear;
 }
+
 
 
 @media screen and (max-width:850px) {
