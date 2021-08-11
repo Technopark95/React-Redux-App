@@ -3,6 +3,16 @@ import React from 'react';
 import ReactDOM  from "react-dom";
 import store from './store';
 import styles from './App.module.css'
+import refreshicon from './refresh.png'
+
+
+
+function updateTime() {
+
+    let d = new Date(); // for now
+    this.setState({curTime : ` ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`})
+}
+
 
 class Users extends React.Component {
 
@@ -81,13 +91,16 @@ async refreshuserlist ()  {
 
     
     let User = new Users();
+    let Timestamp = new RefreshTime();
 
     await User.fetchUsers();
 
+   updateTime();
+
     let UserInfo = store.getState()["userData"];
-    console.log("Hello")
 
     ReactDOM.render(<Users Data={UserInfo}/> , document.getElementById("root"))
+    
     
 }
 
@@ -98,7 +111,7 @@ async refreshuserlist ()  {
 return (
 
 <div>
-    <button onClick={this.refreshuserlist}>Refresh Users</button>
+    <button className={styles.refreshbutton} onClick={this.refreshuserlist}><img alt={"Refresh"} className={styles.refreshicon} src={refreshicon}></img></button>
 </div>
 
 )
@@ -109,7 +122,28 @@ return (
 
 }
 
+
+class RefreshTime extends React.Component {
+
+
+    constructor()  {
+        super();
+        let d = new Date(); // for now
+        this.state = {curTime : `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}` }
+
+        updateTime = updateTime.bind(this);
+    }
+
+    render ()  {
+
+        return this.state.curTime;
+    }
+
+
+}
+
 export{
     Users,
-    TopController
+    TopController,
+    RefreshTime
 }

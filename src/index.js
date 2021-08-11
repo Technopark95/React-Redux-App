@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import store from './store';
-import {Users,TopController} from './App.js'
+import {Users,TopController,RefreshTime} from './App.js'
 
 
 
@@ -18,6 +18,7 @@ async function startApp()  {
     
     ReactDOM.render(<Users Data={UserInfo}/> , document.getElementById("root"))
 
+    ReactDOM.render(<RefreshTime/> , document.getElementById("timevalue"))
 
 }
 

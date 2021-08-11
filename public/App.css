@@ -14,3 +14,45 @@ z-index: -1;
 
 }
 
+.controlpanel {
+
+display: flex;
+flex-direction: row;
+align-items: center;
+
+}
+
+.timestamp {
+
+
+  width: 200px;
+  height: 30px;
+  background-color: blanchedalmond;
+  margin-left: -20px;
+  z-index: 0;
+  transform: skew(40deg);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#controls {
+
+  z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.79);
+border-radius: 100%;
+}
+
+.timeinfo {
+
+  transform: skew(-40deg)!important;
+
+  margin-left:8px;
+}
+
+#timevalue {
+
+  font-size: 110%;
+}

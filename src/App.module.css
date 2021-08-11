@@ -52,6 +52,25 @@ display: flex;
 }
 
 
+.refreshbutton {
+
+width: 40px;
+height: 40px;
+border-radius: 100%;
+border:0;
+outline: none;
+cursor: pointer;
+
+}
+
+.refreshicon {
+margin-top: 4px;
+width: 100%;
+height: auto;
+cursor: pointer;
+
+}
+
 
 @media screen and (max-width:850px) {
 
