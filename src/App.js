@@ -101,7 +101,7 @@ async refreshuserlist ()  {
     document.getElementById("refreshico").style.transition = "0ms linear";
     document.getElementById("refreshico").style.transform = "rotate(0deg)";
 
-    },1050);
+    },700);
 
 
 
