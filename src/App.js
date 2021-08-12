@@ -57,6 +57,8 @@ class Users extends React.Component {
         }
 
         store.dispatch(fetchedInformation);
+        store.dispatch({type:"-"});
+
 
     }
 
@@ -91,7 +93,6 @@ async refreshuserlist ()  {
 
     
     let User = new Users();
-    let Timestamp = new RefreshTime();
 
     document.getElementById("refreshico").style.transition = "600ms linear";
     document.getElementById("refreshico").style.transform = "rotate(360deg)";
@@ -110,7 +111,7 @@ async refreshuserlist ()  {
     updateTime();
 
 
-    let UserInfo = store.getState()["userData"];
+    let UserInfo = store.getState()["fetch"]["userData"];
 
     ReactDOM.render(<Users Data={UserInfo}/> , document.getElementById("root"))
     

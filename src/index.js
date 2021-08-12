@@ -8,11 +8,15 @@ import {Users,TopController,RefreshTime} from './App.js'
 async function startApp()  {
 
 
+
+
     let User = new Users();
 
     await User.fetchUsers();
 
-    let UserInfo = store.getState()["userData"];
+    let UserInfo = store.getState()["fetch"]["userData"];
+
+    console.log(store.getState())
 
     ReactDOM.render(<TopController Data={UserInfo}/> , document.getElementById("controls"))
     

@@ -11,7 +11,7 @@ z-index: -1;
   background-attachment: fixed;
   background-size: cover;
   opacity: 0.9;
-  filter: blur(2px);
+  /* filter: blur(2px); */
 
 }
 
