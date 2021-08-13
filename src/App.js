@@ -1,6 +1,5 @@
 import fetch from "node-fetch";
 import React from 'react';
-import ReactDOM  from "react-dom";
 import store from './store';
 import styles from './App.module.css'
 import refreshicon from './refresh.png'
@@ -13,11 +12,30 @@ function updateTime() {
     this.setState({curTime : ` ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`})
 }
 
+function updateState(userInfo) {
+        
+    this.setState({userData : userInfo})
+
+    console.log(this.userInfo)
+
+}
+
 
 class Users extends React.Component {
 
 
-    async fetchUsers()  {
+    constructor()  {
+
+super();
+
+this.state =  {userData : [] }
+
+updateState = updateState.bind(this);
+
+    }
+
+
+    async FetchUsers()  {
 
         if (!window.navigator.onLine) {
 
@@ -57,7 +75,10 @@ class Users extends React.Component {
         }
 
         store.dispatch(fetchedInformation);
-        store.dispatch({type:"-"});
+
+        let UserInfo = store.getState()["fetch"]["userData"];
+
+        updateState(UserInfo)
 
 
     }
@@ -67,8 +88,7 @@ class Users extends React.Component {
 
         return ( <div className={styles.container}>
     
-
-            {this.props.Data.map(item => {
+            {this.state.userData.map(item => {
                 return <div key={item["username"].toString()} className={styles.listitem}>
                         <label className={styles.name}>{item["name"]}</label>
                         <label className={styles.name}> Username : <span className={styles.username}>{item["username"]}</span></label>
@@ -92,8 +112,6 @@ class TopController extends React.Component {
 async refreshuserlist ()  {
 
     
-    let User = new Users();
-
     document.getElementById("refreshico").style.transition = "600ms linear";
     document.getElementById("refreshico").style.transform = "rotate(360deg)";
 
@@ -105,16 +123,10 @@ async refreshuserlist ()  {
     },700);
 
 
-
-    await User.fetchUsers();
+    let User = new Users();
+    await User.FetchUsers();
 
     updateTime();
-
-
-    let UserInfo = store.getState()["fetch"]["userData"];
-
-    ReactDOM.render(<Users Data={UserInfo}/> , document.getElementById("root"))
-    
     
 }
 

@@ -10,19 +10,17 @@ async function startApp()  {
 
 
 
+
+
+    ReactDOM.render(<Users/> , document.getElementById("root"))
+
     let User = new Users();
-
-    await User.fetchUsers();
-
-    let UserInfo = store.getState()["fetch"]["userData"];
-
-    console.log(store.getState())
-
-    ReactDOM.render(<TopController Data={UserInfo}/> , document.getElementById("controls"))
     
-    ReactDOM.render(<Users Data={UserInfo}/> , document.getElementById("root"))
+    await User.FetchUsers();
 
-    ReactDOM.render(<RefreshTime/> , document.getElementById("timevalue"))
+     ReactDOM.render(<TopController /> , document.getElementById("controls"))
+    
+     ReactDOM.render(<RefreshTime/> , document.getElementById("timevalue"))
 
 }
 
